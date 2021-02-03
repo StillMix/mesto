@@ -1,0 +1,13 @@
+.popup__overlay{
+    background: #000000;
+    opacity: 0.5;
+    width: 1280px;
+height: 100%;
+}
+
+@media screen and (min-width: 320px) and (max-width: 786px){
+    .popup__overlay{
+width: 320px;
+height: 100%;
+    }
+}

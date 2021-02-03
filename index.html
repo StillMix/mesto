@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="pages/index.css">
+        <title>Mesto</title>
+    </head>
+    <body class="body">
+        <div class="page">
+            <header class="header">
+                <img src="images/header-logo.svg" class="header__logo">
+                  <div class="header__line"></div>
+            </header>
+           <main class="content">
+               <section class="profile">
+                <img src="images/profile-avatar.png" class="profile__avatar">
+                <div class="profile__info">
+                    <div class="profile__container">
+                        <p class="profile__name">Жак-Ив Кусто</p>
+                    <a href="#" class="profile__change"></a> 
+                    </div>
+                    <p class="profile__status">Исследователь океана</p>
+                </div>
+                <a href="#" class="add__btn">
+                   <img src="images/add-plus.svg" class="add__plus"></a>
+               </section>
+               <section class="description">
+                <ul class="elements">
+                     <li class="element">
+                          <img src="images/element-Karachevsk.jpg" class="element__image">
+                          <div class="element__container">
+                          <p class="element__name">Карачаевск</p>
+                           <img src="images/heart.svg" class="element__heart">
+                               </div>
+                     </li>
+                     <li class="element">
+                        <img src="images/element-Elibrus.jpg" class="element__image">
+                        <div class="element__container">
+                        <p class="element__name">Гора Эльбрус</p>
+                        <img src="images/heart.svg" class="element__heart">
+                    </div>
+                     </li>
+                   <li class="element">
+                    <img src="images/element-Dombai.jpg" class="element__image">
+                    <div class="element__container">
+                    <p class="element__name">Домбаи</p>
+                    <img src="images/heart.svg" class="element__heart">
+                </div>
+                   </li>
+                   <li class="element">
+                    <img src="images/element-Elibrus.jpg" class="element__image">
+                    <div class="element__container">
+                    <p class="element__name">Гора Эльбрус</p>
+                    <img src="images/heart.svg" class="element__heart">
+                </div>
+                 </li>
+                 <li class="element">
+                    <img src="images/element-Dombai.jpg" class="element__image">
+                    <div class="element__container">
+                    <p class="element__name">Домбаи</p>
+                    <img src="images/heart.svg" class="element__heart">
+                </div>
+                   </li>
+       <li class="element">
+        <img src="images/element-Karachevsk.jpg" class="element__image">
+        <div class="element__container">
+        <p class="element__name">Карачаево-Черкессия</p>
+        <img src="images/heart.svg" class="element__heart">
+    </div>
+       </li>
+   </ul>
+                </section>
+           </main>
+           <footer class="footer">
+                 <p class="footer__copyright">© 2020 Mesto Russia</p>
+           </footer>
+           <div class="popup">
+               <div class="popup__form">
+                <a href="#" class="popup__back"><img src="images/back-button.svg" class="popup_back_btn"></a>
+                   <p class="popup__title">Редактировать профиль</p>
+                   <input type="text" placeholder="Имя" class="input__text input__text_type_name">
+                   <input type="text" placeholder="О себе" class="input__text input__text_type_status">
+                   <button class="popup__btn" type="button">Сохранить</button>
+               </div>
+               <div class="popup__overlay"></div>
+           </div>
+        </div>
+        <script src="scripts/script.js"></script>
+    </body>
+</html>

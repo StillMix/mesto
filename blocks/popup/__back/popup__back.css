@@ -1,0 +1,23 @@
+.popup__back{
+    height: 40px;
+    width: 40px;
+    position: fixed;
+    z-index: 2;
+    left: 420px;
+    top: -30px;
+    transform: rotate(-45deg);
+}
+
+@media screen and (min-width: 320px) and (max-width: 786px){
+    .popup__back{
+        height: 26px;
+        width: 26px;
+        transform: rotate(-45deg);
+        left: 255px;
+        top: -42px;
+    }
+}
+
+.popup__back:hover{
+    opacity: 0.8;
+}

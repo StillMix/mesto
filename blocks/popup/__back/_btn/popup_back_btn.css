@@ -1,0 +1,11 @@
+.popup_back_btn{
+    height: 40px;
+    transform: rotate(-45deg);
+}
+
+@media screen and (min-width: 320px) and (max-width: 786px){
+    .popup_back_btn{
+        height: 26px;
+    }
+
+}
