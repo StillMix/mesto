@@ -1,7 +1,10 @@
 .popup__back{
     height: 40px;
     width: 40px;
-    position: fixed;
+    position: absolute;
+    border: none;
+    outline: none;
+            background-color: transparent;
     z-index: 2;
     left: 420px;
     top: -30px;

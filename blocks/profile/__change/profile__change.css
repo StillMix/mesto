@@ -1,6 +1,9 @@
 .profile__change{
     margin-left: 18px;
     margin-top: 15px;
+    background-color: transparent;
+    outline: none;
+    border: none;
     height: 24px;
     width: 24px;
     background-image: url(../../../images/change-icon.svg);
