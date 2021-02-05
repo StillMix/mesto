@@ -9,7 +9,7 @@ let jobInput = document.querySelector('.input_type_status');
 
 btn_open.addEventListener('click', function () {
     console.log('Мы кликнули по элементу');
-    popup.className = 'popup__opened';
+    popup.className = 'popup_opened';
   }); 
 
   btn_close.addEventListener('click', function () {

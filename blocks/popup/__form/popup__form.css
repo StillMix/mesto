@@ -1,8 +1,7 @@
 .popup__form{
-    position: fixed;
+    position: relative;
     z-index: 2;
-    transform: translate(425px, 195px);
-
+    transform: translate(425px);
    padding-bottom: 37px;
     width: 430px;
     background: #FFFFFF;
