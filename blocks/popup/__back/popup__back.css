@@ -3,7 +3,9 @@
     width: 40px;
     position: absolute;
     border: none;
+    background-size: contain;
     outline: none;
+    background-image: url(../../../images/back-button.svg);
             background-color: transparent;
     z-index: 2;
     left: 420px;

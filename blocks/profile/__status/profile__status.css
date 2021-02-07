@@ -1,29 +1,25 @@
 .profile__status{
+  font-family: "Inter", "Arial", sans-serif;
 color: #FFFFFF;
+margin-top: 16px;
+font-style: normal;
+font-weight: normal;
 border:none;
 background-color: transparent;
 }
 
   @media screen and (min-width: 787px){
     .profile__status{
-        font-family: Inter;
-        font-style: normal;
-        font-weight: normal;
         font-size: 18px;
         line-height: 22px;
-        margin-top: 16px;
     }
 }
 
     
 @media screen and (min-width: 320px) and (max-width: 786px){
        .profile__status{
-        font-family: Inter;
-        font-style: normal;
-        font-weight: normal;
         font-size: 14px;
         line-height: 17px;
         text-align: center;
-        margin-top: 14px;
        }
     }
