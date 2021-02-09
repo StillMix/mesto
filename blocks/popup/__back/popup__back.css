@@ -1,28 +1,28 @@
-.popup__back{
+.popup__back {
+    cursor: pointer;
     height: 40px;
     width: 40px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
     position: absolute;
     border: none;
-    background-size: contain;
     outline: none;
-    background-image: url(../../../images/back-button.svg);
-            background-color: transparent;
+    background-color: transparent;
     z-index: 2;
     left: 420px;
-    top: -30px;
-    transform: rotate(-45deg);
+    top: -40px;
 }
 
-@media screen and (min-width: 320px) and (max-width: 786px){
-    .popup__back{
+@media screen and (min-width: 320px) and (max-width: 786px) {
+    .popup__back {
         height: 26px;
         width: 26px;
-        transform: rotate(-45deg);
         left: 255px;
         top: -42px;
     }
 }
 
-.popup__back:hover{
-    opacity: 0.8;
+.popup__back:hover {
+    opacity: 0.6;
 }

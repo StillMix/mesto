@@ -8,27 +8,26 @@ let profilename = document.querySelector('.profile__name');
 let profilejob = document.querySelector('.profile__status');
 
 
-function OpenPopup (){
-  popup.classList.add('popup_opened');
-  nameInput.value = profilename.innerHTML;
-  jobInput.value = profilejob.innerHTML;
+function popupOpen() {
+    popup.classList.add('popup_opened');
+    nameInput.value = profilename.textContent;
+    jobInput.value = profilejob.textContent;
 }
-btnOpen.addEventListener('click', OpenPopup); 
 
-function ClosePopup(){
-   popup.classList.remove('popup_opened');
+function popupClose() {
+    popup.classList.remove('popup_opened');
 }
-btnClose .addEventListener('click', ClosePopup); 
 
 
 // Обработчик «отправки» формы, хотя пока
 // она никуда отправляться не будет
-function formSubmitHandler (evt) {
+function formSubmitHandler(evt) {
     evt.preventDefault();
-    popup.classList.remove('popup_opened');
+    popupClose();
     profilejob.textContent = jobInput.value;
-    profilename.textContent = nameInput.value; 
+    profilename.textContent = nameInput.value;
 }
 
-formElement.addEventListener('submit', formSubmitHandler); 
-
+btnClose.addEventListener('click', popupClose);
+btnOpen.addEventListener('click', popupOpen);
+formElement.addEventListener('submit', formSubmitHandler);

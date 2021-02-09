@@ -1,20 +1,19 @@
-.profile{
-   display: flex;
-   margin-right: auto;
-   margin-left: auto;
-   margin-top: 40px;
- }
+.profile {
+    display: flex;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 40px;
+}
 
- @media screen and (min-width: 787px){
-    .profile{
-      width: 880px;
+@media screen and (min-width: 787px) {
+    .profile {
+        width: 880px;
     }
 }
 
-    
-@media screen and (min-width: 320px) and (max-width: 786px){
-       .profile{
+@media screen and (min-width: 320px) and (max-width: 786px) {
+    .profile {
         flex-direction: column;
         width: 282px;
-       }
     }
+}
