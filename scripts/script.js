@@ -1,7 +1,7 @@
 let popup = document.querySelector('.popup');
 let btnOpen = document.querySelector('.profile__change');
 let btnClose = document.querySelector('.popup__back');
-let formElement = document.querySelector('.popup__edit');
+let formElement = document.querySelector('.popup__form');
 let nameInput = document.querySelector('.input_type_name');
 let jobInput = document.querySelector('.input_type_status');
 let profilename = document.querySelector('.profile__name');
@@ -23,9 +23,9 @@ function popupClose() {
 // она никуда отправляться не будет
 function formSubmitHandler(evt) {
     evt.preventDefault();
-    popupClose();
     profilejob.textContent = jobInput.value;
     profilename.textContent = nameInput.value;
+    popupClose();
 }
 
 btnClose.addEventListener('click', popupClose);
