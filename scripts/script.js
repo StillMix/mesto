@@ -65,9 +65,9 @@ const initialCards = [{
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
     }
 ];
-const IMGOpen = document.querySelector('.popupopen__container');
-const IMGNamePopup = document.querySelector('.popupopen__title');
-const IMGSrcPopup = document.querySelector('.popupopen__img');
+const IMGOpen = document.querySelector('.IMG');
+const IMGNamePopup = document.querySelector('.IMG__title');
+const IMGSrcPopup = document.querySelector('.IMG__image');
 
 initialCards.forEach(function(element) {
     const IMGtemplate = document.querySelector('.element-template').content.cloneNode(true);
@@ -94,7 +94,7 @@ initialCards.forEach(function(element) {
 
 });
 
-const IMGBtnClose = document.querySelector('.popupopen__back');
+const IMGBtnClose = document.querySelector('.IMG__back');
 
 function close() {
     IMGOpen.classList.remove('popupopen__open');

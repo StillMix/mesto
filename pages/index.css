@@ -45,7 +45,6 @@
 @import url(../blocks/input/input.css);
 @import url(../blocks/popup/__btn/popup__btn.css);
 @import url(../blocks/popup/__back/popup__back.css);
-@import url(../blocks/back/__image/back__image.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
 
 /**/
@@ -59,13 +58,18 @@
 @import url(../blocks/element/backet/element__backet.css);
 @import url(../blocks/elemnt/__btnopen/elemnt__btnopen.css);
 @import url(../blocks/popupIMG/__title/popupIMG__title.css);
+@import url(../blocks/popupIMG/__image/popupIMG__image.css);
 
 /**/
 
-@import url(../blocks/popupopen/__overlay/popupopen__overlay.css);
-@import url(../blocks/popupopen/__container/popupopen__container.css);
-@import url(../blocks/popupopen/__img/popupopen__img.css);
-@import url(../blocks/popupopen/__back/popupopen__back.css);
-@import url(../blocks/popupopen/__title/popupopen__title.css);
+@import url(../blocks/IMG/__overlay/IMG__overlay.css);
+@import url(../blocks/IMG/IMG.css);
+@import url(../blocks/IMG/__back/IMG__back.css);
+@import url(../blocks/IMG/__image/IMG__image.css);
+@import url(../blocks/IMG/__title/IMG__title.css);
+@import url(../blocks/IMG/__img/IMG__img.css);
+
+/**/
+
 @import url(../blocks/popupopen/__open/popup__open.css);
 @import url(blocks/popupopen/__open/popupopen__open.css);

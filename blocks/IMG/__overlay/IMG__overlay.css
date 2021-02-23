@@ -1,0 +1,4 @@
+.IMG__overlay {
+    position: relative;
+    z-index: 1;
+}
