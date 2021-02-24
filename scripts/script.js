@@ -6,29 +6,6 @@ const nameInput = document.querySelector('.input_type_name');
 const jobInput = document.querySelector('.input_type_status');
 const profileName = document.querySelector('.profile__name');
 const profileJob = document.querySelector('.profile__status');
-
-function popupOpen() {
-    popup.classList.add('popup_opened');
-    nameInput.value = profileName.textContent;
-    jobInput.value = profileJob.textContent;
-}
-
-function popupClose() {
-    popup.classList.remove('popup_opened');
-}
-
-function formSubmitHandler(evt) {
-    evt.preventDefault();
-    profileJob.textContent = jobInput.value;
-    profileName.textContent = nameInput.value;
-    popupClose();
-}
-
-btnClose.addEventListener('click', popupClose);
-btnOpen.addEventListener('click', popupOpen);
-formElement.addEventListener('submit', formSubmitHandler);
-
-
 const initialCards = [{
         name: 'Архыз',
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
@@ -66,12 +43,26 @@ const imagesCloseBtn = document.querySelector('.popupIMG__back');
 const ImagesCreateBtn = document.querySelector('.popupIMG__form');
 const ImageCloseBtn = document.querySelector('.IMG__back');
 
+function popupOpen() {
+    popup.classList.add('popup_opened');
+    nameInput.value = profileName.textContent;
+    jobInput.value = profileJob.textContent;
+}
+
+function popupClose() {
+    popup.classList.remove('popup_opened');
+}
+
+function formSubmitHandler(evt) {
+    evt.preventDefault();
+    profileJob.textContent = jobInput.value;
+    profileName.textContent = nameInput.value;
+    popupClose();
+}
+
 function close() {
     imageOpen.classList.remove('popupopen__open');
 };
-
-ImageCloseBtn.addEventListener('click', close);
-
 
 function popupImageOpen() {
     popupImage.classList.add('popup__open');
@@ -80,9 +71,6 @@ function popupImageOpen() {
 function popupImageClose() {
     popupImage.classList.remove('popup__open');
 }
-
-imagesCreateOpen.addEventListener('click', popupImageOpen);
-imagesCloseBtn.addEventListener('click', popupImageClose);
 
 function createCard(name, link, wrap) {
     const imageTemplateClone = document.querySelector('.element-template').content.cloneNode(true);
@@ -125,6 +113,15 @@ function handleAdd(evt) {
     const inputName = document.querySelector('.input_type_nameIMG');
     const inputLink = document.querySelector('.input_type_src');
     createCard(inputName.value, inputLink.value, imageContainer);
+    inputName.value = '';
+    inputLink.value = '';
+    popupImageClose();
 }
 
+imagesCreateOpen.addEventListener('click', popupImageOpen);
+imagesCloseBtn.addEventListener('click', popupImageClose);
 ImagesCreateBtn.addEventListener('submit', handleAdd);
+ImageCloseBtn.addEventListener('click', close);
+btnClose.addEventListener('click', popupClose);
+btnOpen.addEventListener('click', popupOpen);
+formElement.addEventListener('submit', formSubmitHandler);
