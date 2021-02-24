@@ -1,38 +1,27 @@
-let popup = document.querySelector('.popup');
-let btnOpen = document.querySelector('.profile__change');
-let btnClose = document.querySelector('.popup__back');
-let formElement = document.querySelector('.popup__form');
-let nameInput = document.querySelector('.input_type_name');
-let jobInput = document.querySelector('.input_type_status');
-let profilename = document.querySelector('.profile__name');
-let profilejob = document.querySelector('.profile__status');
+const popup = document.querySelector('.popup');
+const btnOpen = document.querySelector('.profile__change');
+const btnClose = document.querySelector('.popup__back');
+const formElement = document.querySelector('.popup__form');
+const nameInput = document.querySelector('.input_type_name');
+const jobInput = document.querySelector('.input_type_status');
+const profileName = document.querySelector('.profile__name');
+const profileJob = document.querySelector('.profile__status');
 
 function popupOpen() {
-
     popup.classList.add('popup_opened');
-
-    nameInput.value = profilename.textContent;
-
-    jobInput.value = profilejob.textContent;
-
+    nameInput.value = profileName.textContent;
+    jobInput.value = profileJob.textContent;
 }
 
 function popupClose() {
-
     popup.classList.remove('popup_opened');
-
 }
 
 function formSubmitHandler(evt) {
-
     evt.preventDefault();
-
-    profilejob.textContent = jobInput.value;
-
-    profilename.textContent = nameInput.value;
-
+    profileJob.textContent = jobInput.value;
+    profileName.textContent = nameInput.value;
     popupClose();
-
 }
 
 btnClose.addEventListener('click', popupClose);
@@ -65,88 +54,77 @@ const initialCards = [{
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
     }
 ];
-const IMGOpen = document.querySelector('.IMG');
-const IMGNamePopup = document.querySelector('.IMG__title');
-const IMGSrcPopup = document.querySelector('.IMG__image');
 
-initialCards.forEach(function(element) {
-    const IMGtemplate = document.querySelector('.element-template').content.cloneNode(true);
-    const IMGName = IMGtemplate.querySelector('.element__name');
-    const IMGImage = IMGtemplate.querySelector('.element__image');
-
-    IMGName.textContent = element.name;
-    IMGImage.src = element.link;
-
-    IMGtemplate.querySelector('.element__heart').addEventListener('click', function(evt) {
-        evt.target.classList.toggle('element__like_active');
-    });
-    IMGtemplate.querySelector('.element__backet').addEventListener('click', function(evt) {
-        evt.target.closest('.element').remove();
-    });
-    IMGtemplate.querySelector('.elemnt__btnopen').addEventListener('click', function(evt) {
-        IMGOpen.classList.toggle('popupopen__open');
-        IMGNamePopup.textContent = IMGName.textContent;
-        IMGSrcPopup.src = IMGImage.src;
-    });
-
-    document.querySelector('.elements').append(IMGtemplate);
-
-
-});
-
-const IMGBtnClose = document.querySelector('.IMG__back');
+const imageTemplate = document.querySelector('.element-template')
+const imageContainer = document.querySelector('.elements');
+const imageOpen = document.querySelector('.IMG');
+const imageNamePopup = document.querySelector('.IMG__title');
+const imageSrcPopup = document.querySelector('.IMG__image');
+const imagesCreateOpen = document.querySelector('.profile__btn-add');
+const popupImage = document.querySelector('.popupIMG');
+const imagesCloseBtn = document.querySelector('.popupIMG__back');
+const ImagesCreateBtn = document.querySelector('.popupIMG__form');
+const ImageCloseBtn = document.querySelector('.IMG__back');
 
 function close() {
-    IMGOpen.classList.remove('popupopen__open');
+    imageOpen.classList.remove('popupopen__open');
 };
 
-IMGBtnClose.addEventListener('click', close);
+ImageCloseBtn.addEventListener('click', close);
 
-const btnClosePopupIMG = document.querySelector('.popupIMG__back');
-const btnAdd = document.querySelector('.profile__btn-add');
-const popupIMG = document.querySelector('.popupIMG');
 
-function popupIMGOpen() {
-    popupIMG.classList.add('popup__open');
+function popupImageOpen() {
+    popupImage.classList.add('popup__open');
 }
 
-function popupIMGClose() {
-    popupIMG.classList.remove('popup__open');
+function popupImageClose() {
+    popupImage.classList.remove('popup__open');
 }
 
-btnClosePopupIMG.addEventListener('click', popupIMGClose);
-btnAdd.addEventListener('click', popupIMGOpen);
+imagesCreateOpen.addEventListener('click', popupImageOpen);
+imagesCloseBtn.addEventListener('click', popupImageClose);
 
-const IMGtemplate = document.querySelector('.element-template').content;
-const IMGContainer = document.querySelector('.elements');
-const addbtnform = document.querySelector('.popupIMG__form');
-const inputName = document.querySelector('.input_type_nameIMG');
-const inputSrc = document.querySelector('.input_type_src');
+function createCard(name, link, wrap) {
+    const imageTemplateClone = document.querySelector('.element-template').content.cloneNode(true);
+    const imageName = imageTemplateClone.querySelector('.element__name');
+    const imageImage = imageTemplateClone.querySelector('.element__image');
 
+    imageName.textContent = name;
+    imageImage.src = link;
+    imageImage.alt = name;
 
-function addIMG(evt) {
-    evt.preventDefault();
-    const IMGadd = IMGtemplate.querySelector('.element').cloneNode(true);
-    const IMGName = IMGadd.querySelector('.element__name');
-    const IMGImage = IMGadd.querySelector('.element__image');
-
-    IMGName.textContent = inputName.value;
-    IMGImage.src = inputSrc.value;
-
-    IMGContainer.prepend(IMGadd);
-    IMGadd.querySelector('.element__heart').addEventListener('click', function(evt) {
+    imageTemplateClone.querySelector('.element__heart').addEventListener('click', function(evt) {
         evt.target.classList.toggle('element__like_active');
     });
-    IMGadd.querySelector('.element__backet').addEventListener('click', function(evt) {
-        const target = evt.target;
-        const targetItem = target.closest('.element');
-        targetItem.remove();
+
+    imageTemplateClone.querySelector('.element__backet').addEventListener('click', function(evt) {
+        evt.target.closest('.element').remove();
     });
-    IMGadd.querySelector('.elemnt__btnopen').addEventListener('click', function(evt) {
-        IMGOpen.classList.toggle('popupopen__open');
-        IMGNamePopup.textContent = IMGName.textContent;
-        IMGSrcPopup.src = IMGImage.src;
+
+    imageTemplateClone.querySelector('.elemnt__btnopen').addEventListener('click', function(evt) {
+        imageOpen.classList.toggle('popupopen__open');
+        imageNamePopup.textContent = imageName.textContent;
+        imageSrcPopup.src = imageImage.src;
     });
+
+
+    wrap.prepend(imageTemplateClone);
+    return imageTemplateClone;
+
 };
 
-addbtnform.addEventListener('submit', addIMG);
+initialCards.forEach(function(element) {
+    const name = element.name;
+    const link = element.link;
+    createCard(name, link, imageContainer)
+});
+
+
+function handleAdd(evt) {
+    evt.preventDefault();
+    const inputName = document.querySelector('.input_type_nameIMG');
+    const inputLink = document.querySelector('.input_type_src');
+    createCard(inputName.value, inputLink.value, imageContainer);
+}
+
+ImagesCreateBtn.addEventListener('submit', handleAdd);

@@ -11,3 +11,7 @@
     position: absolute;
     background-image: url(../../../images/backet.svg);
 }
+
+.element__backet:hover {
+    opacity: 0.6;
+}
