@@ -6,6 +6,16 @@ const nameInput = document.querySelector('.input_type_name');
 const jobInput = document.querySelector('.input_type_status');
 const profileName = document.querySelector('.profile__name');
 const profileJob = document.querySelector('.profile__status');
+const imageTemplate = document.querySelector('.element-template')
+const imageContainer = document.querySelector('.elements');
+const imageOpen = document.querySelector('.IMG');
+const imageNamePopup = document.querySelector('.IMG__title');
+const imageSrcPopup = document.querySelector('.IMG__image');
+const imagesCreateOpen = document.querySelector('.profile__btn-add');
+const popupImage = document.querySelector('.popupIMG');
+const imagesCloseBtn = document.querySelector('.popupIMG__back');
+const ImagesCreateBtn = document.querySelector('.popupIMG__form');
+const ImageCloseBtn = document.querySelector('.IMG__back');
 const initialCards = [{
         name: 'Архыз',
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
@@ -31,17 +41,6 @@ const initialCards = [{
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
     }
 ];
-
-const imageTemplate = document.querySelector('.element-template')
-const imageContainer = document.querySelector('.elements');
-const imageOpen = document.querySelector('.IMG');
-const imageNamePopup = document.querySelector('.IMG__title');
-const imageSrcPopup = document.querySelector('.IMG__image');
-const imagesCreateOpen = document.querySelector('.profile__btn-add');
-const popupImage = document.querySelector('.popupIMG');
-const imagesCloseBtn = document.querySelector('.popupIMG__back');
-const ImagesCreateBtn = document.querySelector('.popupIMG__form');
-const ImageCloseBtn = document.querySelector('.IMG__back');
 
 function popupOpen() {
     popup.classList.add('popup_opened');
