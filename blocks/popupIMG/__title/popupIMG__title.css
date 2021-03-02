@@ -1,4 +1,4 @@
-.popupIMG__title {
+.popupImage__title {
     font-family: "Inter", "Arial", sans-serif;
     font-style: normal;
     font-weight: 900;
@@ -11,7 +11,7 @@
 }
 
 @media screen and (min-width: 320px) and (max-width: 786px) {
-    .popupIMG__title {
+    .popupImage__title {
         margin-top: 25px;
         margin-left: 22px;
         font-size: 18px;

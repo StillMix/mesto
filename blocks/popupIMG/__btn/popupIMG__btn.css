@@ -1,4 +1,4 @@
-.popupIMG__btn {
+.popupImage__btn {
     cursor: pointer;
     background: #000000;
     border-radius: 2px;
@@ -19,7 +19,7 @@
 }
 
 @media screen and (min-width: 320px) and (max-width: 786px) {
-    .popupIMG__btn {
+    .popupImage__btn {
         font-size: 14px;
         line-height: 17px;
         width: 238px;
@@ -30,6 +30,6 @@
     }
 }
 
-.popupIMG__btn:hover {
+.popupImage__btn:hover {
     opacity: 0.8;
 }

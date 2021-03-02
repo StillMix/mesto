@@ -1,4 +1,4 @@
-.popupIMG__back {
+.popupImage__back {
     cursor: pointer;
     height: 40px;
     width: 40px;
@@ -15,7 +15,7 @@
 }
 
 @media screen and (min-width: 320px) and (max-width: 786px) {
-    .popupIMG__back {
+    .popupImage__back {
         height: 26px;
         width: 26px;
         left: 255px;
@@ -23,6 +23,6 @@
     }
 }
 
-.popupIMG__back:hover {
+.popupImage__back:hover {
     opacity: 0.6;
 }
