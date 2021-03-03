@@ -95,8 +95,6 @@ function createCard(name, link, wrap) {
     });
 
 
-    renderCard(imageTemplateClone, wrap);
-
     return imageTemplateClone;
 
 };
@@ -105,16 +103,18 @@ function createCard(name, link, wrap) {
 initialCards.forEach(function(element) {
     const name = element.name;
     const link = element.link;
-    createCard(name, link, imageContainer)
+    const newCard = createCard(name, link)
+    renderCard(newCard, imageContainer);
 });
 
 
 function handleAdd(evt) {
     evt.preventDefault();
-    createCard(inputName.value, inputLink.value, imageContainer);
+    const newCard = createCard(inputName.value, inputLink.value);
+    renderCard(newCard, imageContainer);
     inputName.value = '';
     inputLink.value = '';
-    popupImageClose();
+    closePopup(popupImage);
 }
 
 
