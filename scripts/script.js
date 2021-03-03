@@ -53,9 +53,10 @@ function closePopup(object) {
 }
 
 function openForm() {
-    openPopup(popup);
     nameInput.value = profileName.textContent;
     jobInput.value = profileJob.textContent;
+    openPopup(popup);
+
 }
 
 
@@ -80,7 +81,7 @@ function createCard(name, link, wrap) {
     imageImage.alt = name;
 
     imageTemplateClone.querySelector('.element__heart').addEventListener('click', function(evt) {
-        evt.target.classList.add('element__like_active');
+        evt.target.classList.toggle('element__like_active');
     });
 
     imageTemplateClone.querySelector('.element__backet').addEventListener('click', function(evt) {
