@@ -92,6 +92,7 @@ function createCard(name, link, wrap) {
         openPopup(imageOpen);
         imageNamePopup.textContent = imageName.textContent;
         imageSrcPopup.src = imageImage.src;
+        imageSrcPopup.alt = name;
     });
 
 
