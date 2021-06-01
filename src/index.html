@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Место</title>
+</head>
+
+<body class="body">
+    <div class="page">
+        <header class="header">
+            <img src="<%=require('./images/header-logo.svg')%>" alt="Логотип сайта" class="header__logo">
+        </header>
+        <main class="content">
+            <section class="profile">
+
+                <img class="profile__avatar-edit" src="<%=require('./images/avatar-edit.svg')%>">
+                <img alt="Аватарка профиля" class="profile__avatar">
+
+                <div class="profile__info">
+                    <div class="profile__container">
+                        <h1 class="profile__name"></h1>
+                        <button aria-label="Close" type="button" class="profile__btn-edit"></button>
+                    </div>
+                    <p class="profile__status"></p>
+                </div>
+                <button class="profile__btn-add"></button>
+            </section>
+            <section class="cards">
+                <ul class="elements">
+
+                </ul>
+            </section>
+        </main>
+        <footer class="footer">
+            <p class="footer__copyright">© 2020 Mesto Russia</p>
+        </footer>
+        <template class="element-template">
+            <li class="element">
+                <button type="button" class="element__btn-open"><img class="element__image"></button>
+                <button class="element__basket" type="button"></button>
+                <div class="element__container">
+                    <h3 class="element__name"></h3>
+                    <button class="element__heart"></button>
+                    <div class="element__likes">0</div>
+
+                </div>
+            </li>
+        </template>
+        <div class="popup popup_type_delete">
+            <div class="popup__background background-popup-delete"></div>
+            <div class="popup__overlay">
+                <button aria-label="Close" class="popup__btn-back btn-back-popup-delete" type="button"><img src="<%=require('./images/back-button.svg')%>" class="popup__image" alt="Кнопка назад"></button>
+                <h2 class="popup__title">Вы уверены?</h2>
+                <form name="form-delete-card" class="form form_delete_card">
+                    <button class="popup__btn-create popup-btn-delete-card" type="submit">Да</button>
+                </form>
+            </div>
+        </div>
+        <div class="popup popup_type_editAvatar">
+            <div class="popup__background background-popup-editAvatar"></div>
+            <div class="popup__overlay">
+                <button aria-label="Close" class="popup__btn-back btn-back-popup-editAvatar" type="button"><img src="<%=require('./images/back-button.svg')%>" class="popup__image" alt="Кнопка назад"></button>
+                <h2 class="popup__title">Обновить автар</h2>
+                <form name="form-editAvatar-profile" class="form form_type_editAvatar">
+                    <label>
+                    <input type="url" id="profile-avatar-input" placeholder="Новый аватар" class="input input_type_Avatar" name="avatarInput" required minlength="2" maxlength="200">
+                    <span class="popup__error profile-avatar-input-error"></span>
+                </label>
+                    <button class="popup__btn-create popup-btn-create-avatar" type="submit">Сохранить</button>
+                </form>
+            </div>
+        </div>
+        <div class="popup popup_type_edit">
+            <div class="popup__background background-popup-edit"></div>
+            <div class="popup__overlay">
+                <button aria-label="Close" class="popup__btn-back btn-back-popup-edit" type="button"><img src="<%=require('./images/back-button.svg')%>" class="popup__image" alt="Кнопка назад"></button>
+                <h2 class="popup__title">Редактировать профиль</h2>
+                <form name="form-edit-profile" class="form form_type_edit">
+                    <lable>
+                        <input id="profile-name-input" type="text" placeholder="Имя" class="input input_type_name" name="NameInput" required minlength="2" maxlength="40">
+                        <span class="popup__error profile-name-input-error"></span>
+                    </lable>
+                    <label>
+                    <input type="text" id="profile-status-input" placeholder="О себе" class="input input_type_status" name="JobInput" required minlength="2" maxlength="200">
+                    <span class="popup__error profile-status-input-error"></span>
+                </label>
+                    <button class="popup__btn-create popup-btn-edit" type="submit">Сохранить</button>
+                </form>
+            </div>
+        </div>
+        <div class="popup popup_type_new-card">
+            <div class="popup__background background-popup-new-card"></div>
+            <div class="popup__overlay">
+                <button aria-label="Close" class="popup__btn-back btn-back-popup-new-card" type="button"><img src="<%=require('./images/back-button.svg')%>" class="popup__image" alt="Кнопка назад"></button>
+                <h2 class="popup__title">Новое место</h2>
+                <form name="form-new-card" class="form form_type_new-card">
+                    <label>
+                    <input id="card-name-input" type="text" placeholder="Название" class="input input_type_nameImage" name="NameIMGInput" required minlength="2" maxlength="30">
+                    <span class="popup__error card-name-input-error"></span>
+                </label>
+                    <label>
+                    <input type="url" id="card-src-input" placeholder="Ссылка на картинку" class="input input_type_src" name="SrcInput" required>
+                    <span class="popup__error card-src-input-error"></span>
+                </label>
+                    <button class="popup__btn-create popup-btn-create-new-card" type="submit">Создать</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup popup-image">
+        <div class="popup__background popup-image__background"></div>
+        <div class="popup-image__overlay">
+            <img aria-label="Close" type="button" src="<%=require('./images/back-button.svg')%>" class="popup__btn-back popup-image__btn-image popup-image__btn-back" alt="Кнопка назад">
+            <img src="#" class="popup-image__image" alt="картинка">
+            <p class="popup-image__title"></p>
+        </div>
+    </div>
+</body>
+
+</html>
