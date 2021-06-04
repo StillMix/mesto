@@ -6,7 +6,7 @@ import UserInfo from '../components/UserInfo.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import Section from '../components/Section.js';
 import PopupWithImage from '../components/PopupWithImage.js';
-import { imageContainer, validateDelete, popupImage, popupAvatarBtn, popupBtnUser, popupDelete, popupNewCard, popupAvatar, popupEdit, imageTemplate, avatarError, nameError, aboutError, nameCardError, srcCardError, validateEditAvatar, popupAvatarOverlay, avatarInput, popupAvatarEdit, profileAvatar, btnCloseImage, formElementNewCard, btnOpenNewCard, btnCloseNewCard, formElementEdit, btnOpenEdit, btnCloseEdit, popupImageOverlay, popupNewCardOverlay, popupEditOverlay, validateEdit, validateNewCard, popupImageName, popupImageSrc, nameInputNewCard, srcInput, nameInputEdit, jobInput, profileName, profileJob } from '../utils/constants.js';
+import { imageContainer, validateDelete, btnEditUser, btnEditAvatar, popupImage, btnDelCard, popupAvatarBtn, popupBtnUser, popupDelete, popupNewCard, popupAvatar, popupEdit, imageTemplate, avatarError, nameError, aboutError, nameCardError, srcCardError, validateEditAvatar, popupAvatarOverlay, avatarInput, popupAvatarEdit, profileAvatar, btnCloseImage, formElementNewCard, btnOpenNewCard, btnCloseNewCard, formElementEdit, btnOpenEdit, btnCloseEdit, popupImageOverlay, popupNewCardOverlay, popupEditOverlay, validateEdit, validateNewCard, popupImageName, popupImageSrc, nameInputNewCard, srcInput, nameInputEdit, jobInput, profileName, profileJob } from '../utils/constants.js';
 import { renderLoading } from '../utils/utils.js';
 const popupImageOpen = new PopupWithImage('.popup-image');
 const userInfoEdit = new UserInfo(profileName, profileJob, profileAvatar);
@@ -22,16 +22,10 @@ const api = new Api({
         'Content-Type': 'application/json'
     }
 })
-Promise.all([api.getUserInfo()])
-    .then(([userData]) => {
-        userId = userData._id
-    })
+
 
 //вспомогательные функции
 
-function closePopup(btn, messege) {
-    document.querySelector(btn).textContent = messege;
-}
 
 function createCard(name, link, api, user, elem, image) {
     const card = new Card({
@@ -45,8 +39,8 @@ function createCard(name, link, api, user, elem, image) {
                 apiEl.deleteCard(idEl).then(() => {
                     element.remove()
                     setTimeout(() => { popupDel.close() }, 100)
-                }).catch((err) => console.log(err)).finally(() => { document.querySelector('.popup-btn-delete-card').textContent = 'Да'; });
-                document.querySelector('.popup-btn-delete-card').textContent = 'Удаление...';
+                }).catch((err) => console.log(err)).finally(() => { btnDelCard.textContent = 'Да'; });
+                btnDelCard.textContent = 'Удаление...';
 
             })
             popupDel.open()
@@ -75,37 +69,35 @@ function createCard(name, link, api, user, elem, image) {
 // РЕДАКТИРОВНИЕ ПРОФИЛЯ
 
 const popupEditProfile = new PopupWithForm('.popup_type_edit', (values) => {
-    userInfoEdit.setUserInfo(values.NameInput, values.JobInput);
-    api.setUserInfo({ name: nameInputEdit.value, about: jobInput.value }).catch((err) => {
+    api.setUserInfo({ name: nameInputEdit.value, about: jobInput.value }).then(() => {
+        userInfoEdit.setUserInfo(values.NameInput, values.JobInput);
+        popupEditProfile.close()
+    }).catch((err) => {
         console.log(err)
-    });
-    renderLoading('.popup-btn-edit', 'Сохранение...', validateEdit);
-    setTimeout(closePopup, 3000, '.popup-btn-edit', 'Сохранить')
-    setTimeout(() => { popupEditProfile.close() }, 3000)
+    }).finally(() => { btnEditUser.textContent = 'Сохранить' });
+    renderLoading('.popup-btn-edit', 'Сохранение...');
 });
 
 function openEditProfilePopup() {
     validateEdit.disableSubmitButton()
     userInfoEdit.getUserInfo(nameInputEdit, jobInput)
-    validateEdit.resetValidation();
     validateEdit.enableValidation();
     popupEditProfile.open();
 }
 //
 const popupEditAvatar = new PopupWithForm('.popup_type_editAvatar', () => {
-    userInfoEdit.setUserAvatar(avatarInput.value);
-    api.setUserAvatar({ avatar: avatarInput.value }).catch((err) => {
+    api.setUserAvatar({ avatar: avatarInput.value }).then(() => {
+        userInfoEdit.setUserAvatar(avatarInput.value);
+        popupEditAvatar.close();
+    }).catch((err) => {
         console.log(err)
-    });
-    renderLoading('.popup-btn-create-avatar', 'Сохранение...', validateEditAvatar);
-    setTimeout(() => { popupEditAvatar.close() }, 3000)
-    setTimeout(closePopup, 3000, '.popup-btn-create-avatar', 'Сохранить')
+    }).finally(() => { btnEditAvatar.textContent = 'Сохранить' });
+    renderLoading('.popup-btn-create-avatar', 'Сохранение...');
 })
 
 function openFormAvatar() {
     validateEditAvatar.enableValidation();
     popupEditAvatar.open();
-    validateEditAvatar.resetValidation();
     validateEditAvatar.disableSubmitButton();
 }
 //
@@ -122,6 +114,7 @@ function openFormAvatar() {
 //СОДЕРЖИМОЕ ПРОФИЛЯ
 api.getUserInfo().then((user) => {
         api.getCards().then((data) => {
+            userId = user._id
             userInfoEdit.setUserAvatar(user.avatar);
             userInfoEdit.setUserInfo(user.name, user.about);
             cardList.renderItems({
@@ -142,14 +135,13 @@ api.getUserInfo().then((user) => {
 const popupAddCard = new PopupWithForm('.popup_type_new-card', (values) => {
     api.addCard({ name: values.NameIMGInput, link: values.SrcInput }).then((data) => {
             cardList.prependItem(createCard(data.name, data.link, api, userId, data, data));
-            renderLoading('.popup-btn-create-new-card', 'Создание...', validateNewCard);
-            setTimeout(() => { popupAddCard.close() }, 3000)
-            setTimeout(closePopup, 3000, '.popup-btn-create-new-card', 'Создать')
+            popupAddCard.close()
 
         })
         .catch((err) => {
             console.log(err)
-        });
+        }).finally(() => { btnEditAvatar.textContent = 'Создать' });
+    renderLoading('.popup-btn-create-new-card', 'Создание...');
 
 });
 
@@ -158,7 +150,6 @@ const popupAddCard = new PopupWithForm('.popup_type_new-card', (values) => {
 popupAvatarEdit.addEventListener('click', openFormAvatar);
 btnOpenNewCard.addEventListener('click', () => {
     popupAddCard.open();
-    validateNewCard.resetValidation();
     validateNewCard.enableValidation();
     validateNewCard.disableSubmitButton();
 });

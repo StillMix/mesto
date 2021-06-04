@@ -57,3 +57,6 @@ export const srcCardError = document.querySelector('.card-src-input-error');
 export const avatarError = document.querySelector('.profile-avatar-input-error');
 //popupDelete 
 export const popupDelete = document.querySelector('.popup_type_delete');
+export const btnDelCard = document.querySelector('.popup-btn-delete-card');
+export const btnEditUser = document.querySelector('.popup-btn-edit');
+export const btnEditAvatar = document.querySelector('.popup-btn-create-avatar');

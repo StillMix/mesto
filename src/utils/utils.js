@@ -1,4 +1,3 @@
-export function renderLoading(btnSelector, mess, valid) {
+export function renderLoading(btnSelector, mess) {
     document.querySelector(btnSelector).textContent = mess;
-    valid.disableSubmitButton();
 }
