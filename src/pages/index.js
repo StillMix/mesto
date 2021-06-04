@@ -87,6 +87,7 @@ const popupEditProfile = new PopupWithForm('.popup_type_edit', (values) => {
 function openEditProfilePopup() {
     validateEdit.disableSubmitButton()
     userInfoEdit.getUserInfo(nameInputEdit, jobInput)
+    validateEdit.resetValidation();
     validateEdit.enableValidation();
     popupEditProfile.open();
 }
@@ -104,6 +105,7 @@ const popupEditAvatar = new PopupWithForm('.popup_type_editAvatar', () => {
 function openFormAvatar() {
     validateEditAvatar.enableValidation();
     popupEditAvatar.open();
+    validateEditAvatar.resetValidation();
     validateEditAvatar.disableSubmitButton();
 }
 //
@@ -156,6 +158,7 @@ const popupAddCard = new PopupWithForm('.popup_type_new-card', (values) => {
 popupAvatarEdit.addEventListener('click', openFormAvatar);
 btnOpenNewCard.addEventListener('click', () => {
     popupAddCard.open();
+    validateNewCard.resetValidation();
     validateNewCard.enableValidation();
     validateNewCard.disableSubmitButton();
 });
