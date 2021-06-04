@@ -1,6 +1,6 @@
 import Popup from './Popup.js';
 
-export default class PopupForm extends Popup {
+export default class PopupWithForm extends Popup {
     constructor(
         popupSelector,
         submitCallback
@@ -16,7 +16,11 @@ export default class PopupForm extends Popup {
 
         return this._formValues;
     }
-
+    close() {
+        this._form = this._popup.querySelector('.form')
+        super.close()
+        this._form.reset()
+    }
 
     setEventListeners() {
         this._popup.querySelector('.form')

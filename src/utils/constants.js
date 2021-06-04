@@ -38,6 +38,7 @@ export const popupImageOverlay = document.querySelector('.popup-image__backgroun
 export const validateNewCard = new FormValidator(validationConfig, '.popup_type_new-card');
 export const validateEditAvatar = new FormValidator(validationConfig, '.popup_type_editAvatar');
 export const validateEdit = new FormValidator(validationConfig, '.popup_type_edit');
+export const validateDelete = new FormValidator(validationConfig, '.popup_type_delete');
 //popupOpen
 
 export const popupBtnUser = document.querySelector('.popup__btn-create');

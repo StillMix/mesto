@@ -31,9 +31,9 @@ export default class Card {
         const heart = this._element.querySelector('.element__heart');
         const likes = this._element.querySelector('.element__likes');
         if (!this._element.querySelector('.element__heart_active')) {
-            this._liked(this._api, this._likes, heart, likes, this._id)
+            this._liked(heart, likes, this._id)
         } else {
-            this._removelike(this._api, this._likes, heart, likes, this._id)
+            this._removelike(heart, likes, this._id)
         }
 
     }

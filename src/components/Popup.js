@@ -1,10 +1,9 @@
-import { ESCClose } from '../utils/constants.js'
-
 export default class Popup {
     constructor(
         popupSelector
     ) {
-        this._popup = popupSelector;
+        this._popup = document.querySelector(popupSelector);
+        this._handleEscClose = this._ESCClose.bind(this)
     }
 
 
@@ -18,21 +17,21 @@ export default class Popup {
     }
 
     _ESCClose(evt) {
-        if (evt.key === ESCClose) {
-            this._popup.classList.remove('popup__open')
+        if (evt.key === 'Escape') {
+            this.close();
         };
     }
 
     close() {
         this._popup.classList.remove('popup__open')
-        document.removeEventListener('keyup', (evt) => this._ESCClose(evt));
+        document.removeEventListener('keyup', this._handleEscClose);
 
     }
 
 
     open() {
         this._popup.classList.add('popup__open')
-        document.addEventListener('keyup', (evt) => this._ESCClose(evt));
+        document.addEventListener('keyup', this._handleEscClose);
     }
 
 }
