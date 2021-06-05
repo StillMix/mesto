@@ -14,10 +14,10 @@ export default class UserInfo {
             this._avatar.src = newAvatar;
         }
     }
-    getUserInfo(name, job) {
-        const userdata = { name, job };
-        userdata.name.value = this._name.textContent
-        userdata.job.value = this._about.textContent
+    getUserInfo() {
+        const userdata = { name: '', job: '' };
+        userdata.name = this._name.textContent
+        userdata.job = this._about.textContent
         return userdata;
 
     }

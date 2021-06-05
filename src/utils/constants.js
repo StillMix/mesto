@@ -60,3 +60,4 @@ export const popupDelete = document.querySelector('.popup_type_delete');
 export const btnDelCard = document.querySelector('.popup-btn-delete-card');
 export const btnEditUser = document.querySelector('.popup-btn-edit');
 export const btnEditAvatar = document.querySelector('.popup-btn-create-avatar');
+export const btnAddCard = document.querySelector('.popup-btn-create-new-card');
